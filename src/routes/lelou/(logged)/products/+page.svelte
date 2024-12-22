@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { navigating } from '$app/stores';
 	import ToolbarActions from '$lib/components/ToolbarActions.svelte';
 
 	let { data } = $props();
@@ -15,9 +16,13 @@
 </script>
 
 <ToolbarActions title="Produits">
-	<button onclick={() => goto('products/new')}>
-		<iconify-icon icon="fa6-solid:plus"></iconify-icon>
-		Nouveau produit
+	<button onclick={() => goto('products/new')} disabled={!!$navigating}>
+		{#if $navigating}
+			<iconify-icon icon="fa6-solid:spinner" class="fa-load"></iconify-icon>
+		{:else}
+			<iconify-icon icon="fa6-solid:plus"></iconify-icon>
+			Nouveau produit
+		{/if}
 	</button>
 </ToolbarActions>
 

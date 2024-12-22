@@ -1,6 +1,6 @@
 <script>
 	import { ADMIN_BASE_URL } from '$lib/constants';
-	import { page } from '$app/stores';
+	import { page, navigating } from '$app/stores';
 
 	let { children } = $props();
 
@@ -24,7 +24,11 @@
 			{#each links as link}
 				{@const href = `/${ADMIN_BASE_URL}${link.endpoint}`}
 				<li>
-					<a {href} aria-current={href === $page.url.pathname ? 'page' : null}>
+					<a
+						{href}
+						aria-busy={$navigating ? 'true' : 'false'}
+						aria-current={href === $page.url.pathname ? 'page' : null}
+					>
 						<iconify-icon icon="fa6-solid:{link.icon}"></iconify-icon>
 						{link.text}
 					</a>
@@ -79,6 +83,11 @@
 						opacity: 1;
 						background-color: var(--color-200);
 						color: var(--on-color-200);
+					}
+
+					&[aria-busy='true'] {
+						pointer-events: none;
+						opacity: 0.5;
 					}
 				}
 			}

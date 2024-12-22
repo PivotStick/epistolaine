@@ -2,6 +2,7 @@
 	import ToolbarActions from '$lib/components/ToolbarActions.svelte';
 	import { snacks } from '$lib/components/Snacks.svelte';
 	import { goto } from '$app/navigation';
+	import { navigating } from '$app/stores';
 	import { ADMIN_BASE_URL } from '$lib/constants';
 	import * as z from 'zod';
 
@@ -36,8 +37,13 @@
 		<button
 			onclick={() => goto(`/${ADMIN_BASE_URL}/products`)}
 			aria-label="Revenir sur les produits"
+			disabled={!!$navigating}
 		>
-			<iconify-icon icon="fa6-solid:arrow-left"></iconify-icon>
+			{#if $navigating}
+				<iconify-icon icon="fa6-solid:spinner" class="fa-load"></iconify-icon>
+			{:else}
+				<iconify-icon icon="fa6-solid:arrow-left"></iconify-icon>
+			{/if}
 		</button>
 	{/snippet}
 </ToolbarActions>
