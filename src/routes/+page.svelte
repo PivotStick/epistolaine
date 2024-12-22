@@ -1,1 +1,7 @@
-<h1>Je suis Lou</h1>
+<h1>Lou.com</h1>
+
+<style>
+	:root {
+		background-color: var(--color-400);
+	}
+</style>
