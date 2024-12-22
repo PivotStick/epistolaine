@@ -20,4 +20,8 @@
 
 <Snacks />
 
+<svelte:head>
+	<title>epistoshop</title>
+</svelte:head>
+
 {@render children()}

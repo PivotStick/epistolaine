@@ -39,6 +39,6 @@ class Collection {
 }
 
 export const db = {
-	items: new Collection('items'),
+	products: new Collection('products'),
 	users: new Collection('users')
 };
