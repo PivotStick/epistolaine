@@ -1,7 +1,12 @@
-<h1>Lou.com</h1>
+<script>
+	/**
+	 * @type {{
+	 *  data: import("./$types").PageData
+	 * }}
+	 */
+	let { data } = $props();
 
-<style>
-	:root {
-		background-color: var(--color-400);
-	}
-</style>
+	console.log(data);
+</script>
+
+<h1>Lou.com</h1>
