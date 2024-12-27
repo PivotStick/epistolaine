@@ -37,8 +37,33 @@
 	<ul class="products">
 		{#each filteredProducts as product (product._id)}
 			<li class="product">
-				{product.name}
+				<img src={product.images[0]} alt="" />
+				<p class="name">{product.name}</p>
+				<p>{product.price.toFixed(2)}€</p>
 			</li>
 		{/each}
 	</ul>
 {/if}
+
+<style lang="scss">
+	.products {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+		gap: 1rem;
+		margin-top: 2rem;
+
+		.product {
+			.name {
+				font-weight: 600;
+				font-size: 1.25rem;
+			}
+
+			img {
+				aspect-ratio: 1;
+				width: 100%;
+				object-fit: cover;
+				border-radius: 0.25rem;
+			}
+		}
+	}
+</style>

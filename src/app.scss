@@ -101,6 +101,8 @@ select {
 	}
 }
 
+input::-webkit-file-upload-button,
+input::file-selector-button,
 button {
 	cursor: pointer;
 
@@ -122,6 +124,10 @@ button {
 	&:active {
 		opacity: 0.5;
 	}
+}
+input::-webkit-file-upload-button,
+input::file-selector-button {
+	display: inline-flex;
 }
 
 ul,
