@@ -1,5 +1,4 @@
-import { db } from '$lib/server/db';
-import { error } from '@sveltejs/kit';
+import { stripe } from '$lib/server/stripe';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -17,13 +16,18 @@ export const actions = {
 		const body = await request.json();
 		const parsed = schema.parse(body);
 
-		const result = await db.products.insertOne(parsed);
-
-		if (!result.acknowledged) {
-			throw error(500, {
-				message:
-					"Bon... Une erreur interne à la création du produit ? Il n'a pas réussi à se sauvegarder en base de donnée 🤷"
-			});
-		}
+		await stripe.products.create({
+			name: parsed.name,
+			description: parsed.description,
+			images: [],
+			metadata: {
+				hidden: 'true',
+				closed: 'true'
+			},
+			default_price_data: {
+				currency: 'eur',
+				unit_amount: parsed.price * 100
+			}
+		});
 	}
 };

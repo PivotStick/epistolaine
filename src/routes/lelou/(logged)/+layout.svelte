@@ -46,12 +46,11 @@
 		display: grid;
 		grid-template-columns: auto 1fr;
 		height: 100dvh;
+		background-color: white;
 
 		nav {
 			padding: 2rem;
-
-			box-shadow: 1rem 0 2rem -2rem var(--color-900);
-			background-color: white;
+			border-right: 1px solid var(--color-100);
 
 			ul {
 				display: grid;

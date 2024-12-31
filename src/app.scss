@@ -1,28 +1,6 @@
+@use '../scss/_colors.scss';
+
 :root {
-	--color-50: #f9f6fe;
-	--color-100: #f1eafd;
-	--color-200: #e6d8fc;
-	--color-300: #d2baf8;
-	--color-400: #b68df3;
-	--color-500: #9b62ea;
-	--color-600: #8341dc;
-	--color-700: #6f30c0;
-	--color-800: #5f2c9d;
-	--color-900: #56288b;
-	--color-950: #320e5d;
-
-	--on-color-50: var(--color-900);
-	--on-color-100: var(--color-900);
-	--on-color-200: var(--color-900);
-	--on-color-300: var(--color-900);
-	--on-color-400: var(--color-100);
-	--on-color-500: var(--color-100);
-	--on-color-600: var(--color-100);
-	--on-color-700: var(--color-100);
-	--on-color-800: var(--color-100);
-	--on-color-900: var(--color-100);
-	--on-color-950: var(--color-100);
-
 	font-family:
 		system-ui,
 		-apple-system,
@@ -65,7 +43,7 @@ input {
 	border: none;
 	border-bottom: 1px solid currentColor;
 	background-color: var(--color-100);
-	border-radius: 0.35rem;
+	border-radius: 0.2rem;
 	width: 100%;
 
 	&::placeholder {
@@ -111,13 +89,15 @@ button {
 	color: var(--on-color-200);
 	outline-color: var(--color-300);
 
-	border-radius: 0.35rem;
+	border-radius: 0.2rem;
 	padding: 0.5rem 0.75rem;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 0.5rem;
+
+	font-weight: 600;
 
 	transition-property: opacity, outline-width;
 
