@@ -1,10 +1,15 @@
-<script>
-	/**
-	 * @type {{
-	 *  data: import("./$types").PageData
-	 * }}
-	 */
-	let { data } = $props();
-</script>
+<main>
+	<h1>Ce site est en cours de construction</h1>
+	<p>Encore un peu de patience ! 😎</p>
+</main>
 
-<h1>Lou.com</h1>
+<style>
+	main {
+		display: grid;
+		justify-items: center;
+		place-content: center;
+		gap: 1rem;
+
+		height: 100dvh;
+	}
+</style>
