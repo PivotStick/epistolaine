@@ -4,6 +4,7 @@
 
 	import { session } from '$lib/client/session.svelte';
 	import Snacks from '$lib/components/Snacks.svelte';
+	import Tooltip from '$lib/components/Tooltip.svelte';
 
 	/**
 	 * @type {{
@@ -25,3 +26,5 @@
 </svelte:head>
 
 {@render children()}
+
+<Tooltip />

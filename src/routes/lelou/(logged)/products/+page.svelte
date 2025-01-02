@@ -5,6 +5,7 @@
 	import Loader from '$lib/components/Loader.svelte';
 	import { snacks } from '$lib/components/Snacks.svelte';
 	import ToolbarActions from '$lib/components/ToolbarActions.svelte';
+	import Tooltip from '$lib/components/Tooltip.svelte';
 
 	let { data } = $props();
 
@@ -100,6 +101,11 @@
 							onclick={() => toggle(product.id, 'closed')}
 							aria-label="Toggle close product"
 							disabled={togglingProps[product.id]?.closed}
+							data-tooltip={togglingProps[product.id]?.closed
+								? '🤔'
+								: product.closed
+									? "Ce produit n'est pas vendable (fermé)"
+									: 'Ce produit est vendable (ouvert)'}
 						>
 							<Loader loading={togglingProps[product.id]?.closed}>
 								<iconify-icon icon="fa6-solid:{product.closed ? 'ban' : 'circle-check'}"
@@ -110,6 +116,11 @@
 							onclick={() => toggle(product.id, 'hidden')}
 							aria-label="Toggle product's visibility"
 							disabled={togglingProps[product.id]?.hidden}
+							data-tooltip={togglingProps[product.id]?.hidden
+								? '🤔'
+								: product.hidden
+									? "Ce produit n'est pas visible"
+									: 'Ce produit est visible !'}
 						>
 							<Loader loading={togglingProps[product.id]?.hidden}>
 								<iconify-icon icon="fa6-solid:{product.hidden ? 'eye-slash' : 'eye'}"
